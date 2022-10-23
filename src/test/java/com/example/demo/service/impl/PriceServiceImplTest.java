@@ -51,7 +51,7 @@ class PriceServiceImplTest {
     private final Price expectedDomainPrice = Price.builder().productId(id).brandId(id).startDate(date).endDate(date).build();
 
     @Test
-    void givenDateProductAndBrand_whenGetBy_thenCallValidatorRepositoryMapperAndReturnsPrice() throws Exception {
+    void givenDateProductAndBrand_whenGetBy_thenCallValidatorRepositoryMapperAndReturnsPrice() {
         when(repository.getBy(any(Date.class), any(Integer.class), any(Integer.class))).thenReturn(priceDAOList);
         when(feeRepository.getReferenceById(id)).thenReturn(feeDAO);
         when(pvpCalculator.calculatePVP(priceDAO2.getPrice(), feeDAO.getPercentage())).thenReturn(expectedPVP);
@@ -65,7 +65,7 @@ class PriceServiceImplTest {
     }
 
     @Test
-    void givenDateProductAndBrandWithMultiplePricesResponse_whenGetBy_thenReturnsPriceWithGreaterPriority() throws Exception {
+    void givenDateProductAndBrandWithMultiplePricesResponse_whenGetBy_thenReturnsPriceWithGreaterPriority() {
         when(repository.getBy(any(Date.class), any(Integer.class), any(Integer.class))).thenReturn(priceDAOListWithMultipleValues);
         when(feeRepository.getReferenceById(id)).thenReturn(feeDAO);
         when(pvpCalculator.calculatePVP(priceDAO2.getPrice(), feeDAO.getPercentage())).thenReturn(expectedPVP);

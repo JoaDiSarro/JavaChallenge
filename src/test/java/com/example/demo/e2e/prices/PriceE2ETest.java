@@ -13,7 +13,6 @@ import static com.example.demo.error.constants.ErrorMessages.PRICE_NOT_FOUND_MES
 
 public class PriceE2ETest extends DefaultE2ETest {
 
-    private final String path = "/price";
     private final String format = "yyyy-MM-dd hh:mm:ss";
     private final SimpleDateFormat dateFormat = new SimpleDateFormat(format);
 
@@ -113,7 +112,7 @@ public class PriceE2ETest extends DefaultE2ETest {
     }
 
     @Test
-    void givenNonExistingData_whenGetBy_ThenThrowsNotFoundException() throws ParseException {
+    void givenNonExistingData_whenGetBy_ThenThrowsNotFoundException() {
         final int invalidId = 999;
         webClient.get().uri(uriBuilder ->
                         generateURI(uriBuilder, "2020-06-16 21:00:00", invalidId, invalidId))
@@ -126,6 +125,7 @@ public class PriceE2ETest extends DefaultE2ETest {
     }
 
     private URI generateURI(UriBuilder uriBuilder, String date, int productId, int brandId) {
+        String path = "/price";
         return uriBuilder
                 .path(path)
                 .queryParam("date", date)
