@@ -23,7 +23,7 @@ class PriceControllerTest {
     private final Price domain = mock(Price.class);
 
     @Test
-    void givenDateProductIdAndBrandIdWhenGetByThenReturnsResponseDto() throws Exception {
+    void givenDateProductIdAndBrandIdWhenGetByThenReturnsResponseDto() {
         when(service.getBy(any(Date.class), any(int.class), any(int.class))).thenReturn(domain);
         when(mapper.domainToDTO(domain)).thenReturn(response);
 

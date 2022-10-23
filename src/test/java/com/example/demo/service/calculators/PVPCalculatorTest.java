@@ -8,12 +8,11 @@ class PVPCalculatorTest {
 
     private final PVPCalculator sut = new PVPCalculator();
 
-    private final Double price = 10.0;
-    private final Double percentage = 20.0;
-    private final Double expectedResult = 12.0;
-
     @Test
     void givenPriceAndPercentage_whenCalculatePVP_thenReturnRightResult() {
+        Double price = 10.0;
+        Double percentage = 20.0;
+        Double expectedResult = 12.0;
         assertEquals(expectedResult, sut.calculatePVP(price, percentage));
     }
 
