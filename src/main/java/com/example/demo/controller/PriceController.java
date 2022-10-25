@@ -22,6 +22,14 @@ public class PriceController {
     private final IPriceService service;
     private final IPriceDTOMapper mapper;
 
+    /**
+     * Endpoint to get Price Data for a specific date, product and brand.
+     *
+     * @param date      used to filter
+     * @param productId used to filter
+     * @param brandId   used to filter
+     * @return PriceResponseDto with the data of the Price
+     */
     @GetMapping()
     public PriceResponseDTO getBy(@RequestParam @DateTimeFormat(pattern = DATE_PATTERN) final Date date,
                                   @RequestParam final int productId,
